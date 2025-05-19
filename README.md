@@ -37,8 +37,7 @@
 
 ```
 
-- train.txt文件中包含了所有的训练样本，以`(file_name, label)` 形式存储，其中label为0表示真实样本，为1表示假样本
-- test1.txt文件中包含了所有的测试样本，以`(file_name)`形式存储
+- train.txt val.txt 文件中包含了所有的训练样本，以`(file_name, label)` 形式存储，其中label为0表示真实样本，为1表示假样本
 
 
 ## 2. Environments
@@ -115,7 +114,7 @@ bash run.sh
 ## 6. 注意事项
 1. 训练时，请确保`configs/xxx.yaml`中的`train_dataset`字段与`data/prepare_dataset_info.py`生成的`dataset_name`一致。
 2. 请各位参赛者按照`predictor.py`中的形式，构建推理代码，并写入`run.sh`中
-3. `submit.csv`文件需要包含"image_name, score" header
+3. `submit.csv`文件需要包含"image_name, score" header。我们在example/example_sunmit.csv中给出了示例，提交的结果请务必按包含该文件中所有的`image_name`。
 
 
 
