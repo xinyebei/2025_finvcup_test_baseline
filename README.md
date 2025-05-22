@@ -93,12 +93,18 @@ RUN pip install -r requirements.txt
 ## 3. 预处理数据
 我们借鉴了[DeepFakeBenchmark](https://github.com/SCLBD/DeepfakeBench)的预处理数据方式，见AlignFacePreprocess类，原始代码见`https://github.com/SCLBD/DeepfakeBench?tab=readme-ov-file#3-preprocessing-optional`，感谢原作者的贡献。
 ``` bash
+
 python preprocess_img.py --image_path /data/data1/train/images  --save_path /data/data1/train/images_crop
 python preprocess_img.py --image_path /data/data1/val/images  --save_path /data/data1/val/images_crop
 python preprocess_img.py --image_path /data/data1/test1/images  --save_path /data/data1/test1/images_crop
 
-```
 
+#or runing in multiprocess
+python preprocess_multiprocess.py --image_path /data/data1/train/images  --save_path /data/data1/train/images_crop --total_splits 4
+...
+...
+
+```
 
 
 ## 4. 训练
@@ -106,7 +112,7 @@ python preprocess_img.py --image_path /data/data1/test1/images  --save_path /dat
 # 生成训练metainfo文件
 python prepare_dataset_info.py --label_info /data/data1/train.txt --mode train --dataset_name train --dataset_root_path /data/data1/train/images_crop/crop
 python prepare_dataset_info.py --label_info /data/data1/val.txt --mode val --dataset_name val --dataset_root_path /data/data1/val/images_crop/crop
-#将生成的dataset_name   “train”   添加到configs/xception.yaml中的train_dataset:[train]中, val添加至 test_dataset:[val]中
+#将生成的dataset_name   “train”   添加到configs/xception.yaml中的train_dataset:[train,]中, val添加至 test_dataset:[val,]中
 
 # 单卡训练
 python train.py --task_target exp_name --detector_path ./configs/xception.yaml 
