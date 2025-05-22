@@ -4,7 +4,6 @@
 *.pyc
 *.pth
 *.pt
-*.dat
 results
 logs
 data
