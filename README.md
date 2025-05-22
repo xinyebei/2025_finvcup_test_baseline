@@ -17,6 +17,8 @@
 |           测试集\模型       |    xception    | ucf | srm |  clip-base| xception+sbi|
 | :--------------------------: | :--------: | :----:  | :----: |:----: | :----: | 
 | 公开测试集 | 0.678 | 0.691 | 0.718 |0.625 |   0.732  |
+
+
 上述模型缩写见[DeepFakeBenchmark](https://github.com/SCLBD/DeepfakeBench)
 
 
