@@ -40,10 +40,11 @@ if __name__ == '__main__':
                 
             label = int(label)
             name = osp.join(args.dataset_root_path, name)
-            if label == 0:
-                dataset_dict["real"]["frames"].append(name)
-            else:
-                dataset_dict["fake"]["frames"].append(name)
+            if osp.exists(name):
+                if label == 0:
+                    dataset_dict["real"]["frames"].append(name)
+                else:
+                    dataset_dict["fake"]["frames"].append(name)
         
 
 
