@@ -29,7 +29,7 @@ if __name__ == '__main__':
 
     args = parse_args()
     dataset_dict = {}
-    dataset_dict = {"real":{"frames":[], "methods":[]}, "fake":{"frames":[], "methods":[]}}
+    dataset_dict = {"real":{"frames":[],}, "fake":{"frames":[],}}
 
     with open(args.label_info, 'r') as f:
         lines = f.readlines()
