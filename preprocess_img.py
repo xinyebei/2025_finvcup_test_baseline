@@ -116,6 +116,9 @@ if __name__ == "__main__":
 
         if cropped_face is not None:
             cv2.imwrite(save_crop_name, cropped_face)
+        else:
+            print(f"[warning!!!!] preprocess failed for {image_file}")
+            cv2.imwrite(save_crop_name, image)
     
         
     params_list = []

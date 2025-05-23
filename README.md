@@ -37,9 +37,10 @@
 │   │    └── val.txt
 │   │  
 │   ├── data2   #私有测试集目录，未给出，在复赛时私有测试集会被挂载到该路径，选手可以忽略
-│   │    └── test
+│   │    └── test2
+│   │        └── images
 │   │ 
-
+│  
 │        
 ├── algorithm
 
@@ -124,18 +125,23 @@ bash train.sh exp_name 48001
 
 ## 5. 推理
 ```bash
-#example_input.csv中由一些示例图片，请将test1测试集中的所有图片先写入某个 .csv文件中
-python predictor.py --inpput_csv example/example_input.csv --output_csv example/example_output.csv
+#example_input.csv中有一些示例图片，请将test1测试集中的所有图片先写入某个 .csv文件中, 注意下列推理脚本中， input_csv中输入的图片是未经过预处理的原图，在predictor.py中会进行预处理
+python predictor.py --input_csv example/example_input.csv --output_csv example/example_output.csv
+bash run.sh  # run.sh 中仅有一行命令，即上述predictor.py的命令
 
-#or
 
+
+#or 选后可以将自己推理流程(预处理图片，推理，后处理结果)写入run.sh中，请注意私有测试集的路径是/data/data2/test2/images   
+# 预处理.....
+# 推理.....
+# 后处理.....
 bash run.sh 
 
 ```
 
 ## 6. 注意事项
 1. 训练时，请确保`configs/xxx.yaml`中的`train_dataset`字段与`data/prepare_dataset_info.py`生成的`dataset_name`一致。
-2. 请各位参赛者按照`predictor.py`中的形式，构建推理代码，并写入`run.sh`中
+2. 请各位选后自行组织自己的推理脚本，并写入`run.sh`中，但是注意私有测试集的路径是`/data/data2/test2/images`，选手需要确保脚本可以顺利对改路径下的图片进行推理。
 3. `submit.csv`文件需要包含"image_name, score" header。我们在example/example_sunmit.csv中给出了示例，提交的结果请务必按包含该文件中所有的`image_name`。
 
 
