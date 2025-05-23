@@ -3,7 +3,6 @@ log_dir: /data/
 
 # model setting
 pretrained: /data/weights/pretrained/xception-b5690688.pth
-# pretrained: /home/js_maoyangjun/projects/DeepfakeBench/weights/pretrained/xception-b5690688.pth
 model_name: xception # model name
 backbone_name: xception # backbone name
 finetune: true
@@ -16,23 +15,10 @@ backbone_config:
   dropout: false
 
 # dataset
-all_dataset: [train, test1, test2]
-# train_dataset: [dataset_ff_insightface_noenhance]
-# train_dataset: [dataset_public]
+all_dataset: [train, test1]
 train_dataset: [train]
 
-test_dataset: [test1, test2]
-
-# test_dataset: [dataset_multiff_val,
-#               val_white_0.9_black_0.05_asian_0.05*mobileswap_0.3333_blendface_0.3333_insightface_0.3333_fancedancer_0,
-#               dataset_white_0_black_0_east_south_asian_1_indonesia_0_domestic_0_philippine_0*mobileswap_0.3333_blendface_0.3333_insightface_0.3333_fancedancer_0,
-#               dataset_white_0_black_0_asian_1_indonesia_0_domestic_0_philippine_0*mobileswap_0_blendface_0_insightface_0_fancedancer_1
-#               ]
-
-# train_dataset: [dataset_ind0212_insightface_noenhance_train]
-# test_dataset: [dataset_ind0212_blendface_noenhace_train]
-# train_dataset: [dataset_ind0212_blendface_noenhace_train]
-# test_dataset: [dataset_ind0212_insightface_noenhance_train]
+test_dataset: [test1]
 
 compression: c23 # compression-level for videos
 train_batchSize: 32 # training batch size

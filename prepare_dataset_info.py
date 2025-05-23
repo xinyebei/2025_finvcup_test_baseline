@@ -39,7 +39,6 @@ if __name__ == '__main__':
                 name, label = line.split(" ")
                 
             label = int(label)
-            method = int(method)
             name = osp.join(args.dataset_root_path, name)
             if label == 0:
                 dataset_dict["real"]["frames"].append(name)

@@ -113,6 +113,7 @@ python preprocess_multiprocess.py --image_path /data/data1/train/images  --save_
 python prepare_dataset_info.py --label_info /data/data1/train.txt --mode train --dataset_name train --dataset_root_path /data/data1/train/images_crop/crop
 python prepare_dataset_info.py --label_info /data/data1/val.txt --mode val --dataset_name val --dataset_root_path /data/data1/val/images_crop/crop
 #将生成的dataset_name   “train”   添加到configs/xception.yaml中的train_dataset:[train,]中, val添加至 test_dataset:[val,]中
+#模型权重文件可以从  xception-b5690688.pth 可以从 https://data.lip6.fr/cadene/pretrainedmodels/ 下载
 
 # 单卡训练
 python train.py --task_target exp_name --detector_path ./configs/xception.yaml 
