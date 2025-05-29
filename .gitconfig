@@ -1,0 +1,12 @@
+[user]
+	name = maoyangjun@xinye.com
+	email = maoyangjun@xinye.com
+[credential]
+	helper = "!f() { /algorithm/.vscode-server/bin/f1a4fb101478ce6ec82fe9627c43efbf9e98c813/node /tmp/vscode-remote-containers-25db6a14-b65f-49c0-9e01-642876f331e6.js git-credential-helper $*; }; f"
+[push]
+	default = simple
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
